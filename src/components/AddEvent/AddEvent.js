@@ -17,7 +17,7 @@ function AddEvent() {
       imageUrl: imgUrl
     }
 
-    fetch(`https://boiling-oasis-42648.herokuapp.com/addEvent`, {
+    fetch(`https://pumpkin-crumble-67893.herokuapp.com/addEvent`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

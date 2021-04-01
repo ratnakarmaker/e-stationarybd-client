@@ -11,7 +11,7 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://boiling-oasis-42648.herokuapp.com/events`)
+    fetch(`https://pumpkin-crumble-67893.herokuapp.com/events`)
       .then(res => res.json())
       .then(data => {
         setIsLoading(false);
