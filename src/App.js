@@ -8,7 +8,6 @@ import Login from './components/Login/Login';
 import { createContext } from 'react';
 import { useState } from 'react';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import Admin from './components/Admin/Admin';
 import CheckOut from './components/CheckOut/CheckOut';
 
 export const userContext = createContext();
@@ -35,16 +34,13 @@ function App() {
             </Route>
 
             <PrivateRoute exact path="/admin">
-              <Admin/>
+            <AddEvent/>
             </PrivateRoute>
             
             <PrivateRoute exact path="/checkout/:id">
               <CheckOut/>
             </PrivateRoute>
 
-            <Route path="/addevent">
-              <AddEvent/>
-            </Route>
 
             <Route exact path="*">
               <h1 className="text-center">Page Not Found</h1>

@@ -30,17 +30,20 @@ function Home(props) {
             </div>
           </div>
         }
-        <div className="d-flex justify-content-around flex-wrap">
+        <div className="row">
           {
             events.map((event, idx, id)=> {
               return(
-                <Card style={{ width: '16rem', marginBottom: '20px' }} className="bg-dark" key={idx}>
-                  <Card.Img variant="top" src={event.imageUrl} style={{height: '200px'}} />
-                  <Card.Body>
-                    <Card.Title className="text-center text-white">{event.title}</Card.Title>
-                    <Link to={`/checkout/${event._id}`}>Buy Now</Link>
-                  </Card.Body>
-                </Card>
+                <div className="col-md-3">
+                  <Card className="h-75" key={idx}>
+                    <Card.Img variant="top" className="card_pic h-50" src={event.imageUrl} />
+                    <Card.Body className="text-center">
+                      <Card.Title className="title_color">{event.title}</Card.Title>
+                      <Card.Title className="title_color">{event.price}</Card.Title>
+                      <Link to={`/checkout/${event._id}`}><p className="text-white btn_color">Buy Now</p></Link>
+                    </Card.Body>
+                  </Card>
+                </div>
               )
             })
           }

@@ -5,9 +5,7 @@ import 'firebase/firestore';
 import firebaseConfig from './firebase.config';
 import {userContext} from '../../App';
 import { useHistory, useLocation } from 'react-router';
-import fab_logo from './facebook.png';
 import google_logo from './google.png';
-import logo from './ride_chai.png';
 import './Login.css';
 
 if (!firebase.apps.length) {
@@ -47,35 +45,6 @@ const Login = () => {
             console.log(errorMessage);
         });
     }
-
-    // facebook Sign in
-    const handleSignFacebook = () => {
-        var provider = new firebase.auth.FacebookAuthProvider();
-        firebase.auth()
-        .signInWithPopup(provider)
-        .then((result) => {
-            const {displayName, email, photoURL} = result.user;
-            const signedInUser = {name: displayName, email, photoURL};
-            setLoggedInUser(signedInUser);
-            history.replace(from)
-        })
-        .catch((error) => {
-            const errorMessage = error.message;
-            console.log(errorMessage);
-        });
-    }
-
-    // const handleSignOut = () => {
-    //     firebase.auth().signOut()
-    //         .then(res => {
-    //             const signedOutUser = {
-    //                 loggedInUser: false
-    //             }
-    //             setLoggedInUser(signedOutUser)
-    //         })
-    //         .catch(err => { 
-    //     });
-    // }
 
     const handleBlur = (e) => {
         let isFieldValid = true;
@@ -138,7 +107,6 @@ const Login = () => {
         <div>
             <div className="row d-flex justify-content-center align-items-center w-100 my-5">
                 <div className="col-md-4 col-12">
-                    {/* <img src={logo} alt="" className="logo"/> */}
                     <div className="login_area mt-5 text-center">
                         <h2>Log In</h2>
                         <form onSubmit={handleSubmit}>
@@ -156,7 +124,6 @@ const Login = () => {
                             <input type="submit" className="logButton manual" value="Sign In"/>
 
                             <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newuser" id="newuser" hidden/>
-                            <label htmlFor="newuser">Don't have any Account? Register Here</label>
                         </form>
                         <div className="divider d-flex align-items-center justify-content-center mt-2">
                             <div className="border_after"></div>
@@ -164,13 +131,6 @@ const Login = () => {
                             <div className="border_after"></div>
                         </div>
                         <button onClick={handleSignGoogle} className="logButton google"> <img src={google_logo} alt=""/> Sign in with Google</button>
-                        <button onClick={handleSignFacebook} className="logButton facebook"> <img src={fab_logo} alt=""/> Sign in with Facebook</button>
-                        {/* {
-                            loggedInUser ? 
-                            <button onClick={handleSignOut} className="btn btn-primary">Sign Out</button> 
-                            : 
-                            <button onClick={handleSignGoogle} className="btn btn-primary">Sign in with Google</button>
-                        } */}
                     </div>
                 </div>
             </div>

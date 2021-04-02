@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 
 const CheckOut = (props) => {
-    const {id} = useParams();
+    const { id } = useParams();
 
     const [events, setEvents] = useState([]);
 
@@ -18,21 +18,31 @@ const CheckOut = (props) => {
     })
     console.log(id)
     return (
-        <div>
-            {
-                 events.map((event, idx, id)=> {
-                    return (
-                        <Card style={{ width: '16rem', marginBottom: '20px' }} className="bg-dark" key={idx}>
-                            <Card.Img variant="top" src={event.imageUrl} style={{ height: '200px' }} />
-                            <Card.Body>
-                                <Card.Title className="text-center text-white">{event.title}</Card.Title>
-                                <Card.Title className="text-center text-white">{event.price}</Card.Title>
-                                {/* <Link className="ride_select" to={`/checkout/${product._id}`}>Buy Now</Link> */}
-                            </Card.Body>
-                        </Card>
-                    )
-                })
-            }
+        <div className="container bg-light">
+            <table className="w-100">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        events.map((event, idx, id) => {
+                            return (
+                                <tr key={idx}>
+                                    <td>1</td>
+                                    <td>{event.title}</td>
+                                    <td>1</td>
+                                    <td>{event.price}</td>
+                                </tr>
+                            )
+                        })
+                    }
+                </tbody>
+            </table>
         </div>
     );
 };
