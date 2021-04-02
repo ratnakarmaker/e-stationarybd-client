@@ -136,7 +136,31 @@ function AddEvent() {
                   </table>
                 </Tab.Pane>
                 <Tab.Pane eventKey="third">
-                  <h1>This is Edit Product Tab</h1>
+                <table className="w-100">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {
+                        events.map((event) => {
+                          return (
+                            <tr>
+                              <td>1</td>
+                              <td>{event.title}</td>
+                              <td>{event.price}</td>
+                              <td><button className="btn btn-success">Edit</button>
+                              </td>
+                            </tr>
+                          )
+                        })
+                      }
+                    </tbody>
+                  </table>
                 </Tab.Pane>
               </Tab.Content>
             </Col>
