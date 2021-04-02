@@ -3,9 +3,11 @@ import { useParams } from 'react-router';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { userContext } from '../../App';
 
 const CheckOut = (props) => {
+    const [loggedInUser, setLoggedInUser] = useContext(userContext);
     const { id } = useParams();
 
     const [events, setEvents] = useState([]);
@@ -17,10 +19,30 @@ const CheckOut = (props) => {
                 setEvents(data.reverse());
             })
     })
-    console.log(id)
+    let date_ob = new Date();
     return (
         <div className="container bg-light">
+                  <h1 className="text-center">User Details</h1>
+                  <hr/>
             <table className="w-100">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Date</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{loggedInUser.name}</td>
+                        <td> {loggedInUser.email}</td>
+                        <td> {date_ob.getMonth() + '/' + date_ob.getDate() + '/' + date_ob.getFullYear()}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr/>
+            <table className="w-100 mt-5">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -44,15 +66,8 @@ const CheckOut = (props) => {
                     }
                 </tbody>
             </table>
-            <div className="float-right mt-5">
-                {
-                    events.map((event, idx, id) => {
-                        return (
-
-                            <Link to={`/order/${event._id}`} className="ride_select"><Button>Proceed to Checkout</Button></Link>
-                        )
-                    })
-                }
+            <div>
+                <Button className="btn btn-success float-right mt-5">Order Now</Button>
             </div>
         </div>
     );

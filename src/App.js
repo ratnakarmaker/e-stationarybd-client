@@ -9,6 +9,7 @@ import { createContext } from 'react';
 import { useState } from 'react';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import CheckOut from './components/CheckOut/CheckOut';
+import Order from './components/Order/Order';
 
 export const userContext = createContext();
 function App() {
@@ -39,6 +40,10 @@ function App() {
             
             <PrivateRoute exact path="/checkout/:id">
               <CheckOut/>
+            </PrivateRoute>
+
+            <PrivateRoute exact path="/order/:id">
+              <Order/>
             </PrivateRoute>
 
 

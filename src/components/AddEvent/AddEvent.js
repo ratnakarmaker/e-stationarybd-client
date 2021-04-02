@@ -47,7 +47,7 @@ function AddEvent() {
       .then(res => res.json())
       .then(result => {
         if (result) {
-
+          
         }
       })
   };
@@ -126,7 +126,7 @@ function AddEvent() {
                               <td>1</td>
                               <td>{event.title}</td>
                               <td>{event.price}</td>
-                              <td><button onClick={() => deleteProduct(event._id)}>Delete</button>
+                              <td><button className="btn btn-success" onClick={() => deleteProduct(event._id)}>Delete</button>
                               </td>
                             </tr>
                           )
