@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 
-const CheckOut = () => {
+const CheckOut = (props) => {
     const { id } = useParams();
 
     const [products, setProducts] = useState([]);
@@ -20,13 +20,13 @@ const CheckOut = () => {
     return (
         <div>
             {
-                products.map((product, idx, id) => {
+                products.map((event, idx, id) => {
                     return (
                         <Card style={{ width: '16rem', marginBottom: '20px' }} className="bg-dark" key={idx}>
-                            <Card.Img variant="top" src={product.imageUrl} style={{ height: '200px' }} />
+                            <Card.Img variant="top" src={event.imageUrl} style={{ height: '200px' }} />
                             <Card.Body>
-                                <Card.Title className="text-center text-white">{product.title}</Card.Title>
-                                <Card.Title className="text-center text-white">{product.price}</Card.Title>
+                                <Card.Title className="text-center text-white">{event.title}</Card.Title>
+                                <Card.Title className="text-center text-white">{event.price}</Card.Title>
                                 {/* <Link className="ride_select" to={`/checkout/${product._id}`}>Buy Now</Link> */}
                             </Card.Body>
                         </Card>

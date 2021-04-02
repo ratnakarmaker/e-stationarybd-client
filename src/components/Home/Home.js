@@ -6,7 +6,7 @@ import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
-function Home() {
+function Home(props) {
   
   const [events, setEvents] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
