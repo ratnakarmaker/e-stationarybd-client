@@ -5,22 +5,22 @@ import { useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 
 const CheckOut = (props) => {
-    const { id } = useParams();
+    const {id} = useParams();
 
-    const [products, setProducts] = useState([]);
+    const [events, setEvents] = useState([]);
 
     useEffect(() => {
-        fetch(`https://pumpkin-crumble-67893.herokuapp.com/selelctedProduct/${id}`)
+        fetch(`https://pumpkin-crumble-67893.herokuapp.com/selectedProduct/${id}`)
             .then(res => res.json())
             .then(data => {
-                setProducts(data.reverse());
+                setEvents(data.reverse());
             })
     })
     console.log(id)
     return (
         <div>
             {
-                products.map((event, idx, id) => {
+                 events.map((event, idx, id)=> {
                     return (
                         <Card style={{ width: '16rem', marginBottom: '20px' }} className="bg-dark" key={idx}>
                             <Card.Img variant="top" src={event.imageUrl} style={{ height: '200px' }} />

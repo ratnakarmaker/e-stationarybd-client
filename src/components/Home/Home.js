@@ -38,7 +38,7 @@ function Home(props) {
                   <Card.Img variant="top" src={event.imageUrl} style={{height: '200px'}} />
                   <Card.Body>
                     <Card.Title className="text-center text-white">{event.title}</Card.Title>
-                    <Link className="" to={`/checkout/${event._id}`}>Buy Now</Link>
+                    <Link to={`/checkout/${event._id}`}>Buy Now</Link>
                   </Card.Body>
                 </Card>
               )
