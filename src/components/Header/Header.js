@@ -1,5 +1,5 @@
 import './Header.css';
-import logo from './greenVegLogo.png';
+import logo from './logo.png';
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Nav, Navbar } from 'react-bootstrap';
